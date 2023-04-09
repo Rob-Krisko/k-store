@@ -13,7 +13,7 @@ const products = [
     {
         id: 2,
         name: "Downy Scent Bead",
-        image: "product1.jpg",
+        image: "product2.jpg",
         sizes: [
             { size: "5.7 oz", price: 4.00 },
             { size: "10 oz", price: 6.00 },
@@ -26,7 +26,7 @@ const products = [
     {
         id: 3,
         name: "Purex Scent Bead",
-        image: "product1.jpg",
+        image: "product3.jpg",
         sizes: [
             { size: "need", price: 3.50 },
         ],
@@ -36,7 +36,7 @@ const products = [
     {
         id: 4,
         name: "Gain Pods",
-        image: "product1.jpg",
+        image: "product4.jpg",
         sizes: [
             { size: "14-16ct", price: 3.50 },
             { size: "42 ct", price: 10.00 },
@@ -47,7 +47,7 @@ const products = [
     {
         id: 5,
         name: "Gain Liquid",
-        image: "product1.jpg",
+        image: "product5.jpg",
         sizes: [
             { size: "32 Loads", price: 3.50 },
         ],
@@ -57,7 +57,7 @@ const products = [
     {
         id: 6,
         name: "Gain Softener",
-        image: "product1.jpg",
+        image: "product6.jpg",
         sizes: [
             { size: "48 Loads", price: 3.50 },
         ],
@@ -67,7 +67,7 @@ const products = [
     {
         id: 7,
         name: "Gain Dryer Sheets",
-        image: "product1.jpg",
+        image: "product7.jpg",
         sizes: [
             { size: "105 ct", price: 4.00 },
         ],
@@ -77,7 +77,7 @@ const products = [
     {
         id: 8,
         name: "Snuggle Dryer Sheets",
-        image: "product1.jpg",
+        image: "product8.jpg",
         sizes: [
             { size: "40 ct", price: 1.00 },
             { size: "70-80 ct", price: 2.00 },
@@ -88,7 +88,7 @@ const products = [
     {
         id: 9,
         name: "Snuggle Softener",
-        image: "product1.jpg",
+        image: "product9.jpg",
         sizes: [
             { size: "30-40 Loads", price: 3.50 },
         ],
@@ -98,7 +98,7 @@ const products = [
     {
         id: 10,
         name: "Bounce Dryer Sheets",
-        image: "product1.jpg",
+        image: "product10.jpg",
         sizes: [
             { size: "40 ct", price: 1.00 },
             { size: "120 ct", price: 4.50 },
@@ -110,7 +110,7 @@ const products = [
     {
         id: 11,
         name: "Bounce Free&Gentle Sheets",
-        image: "product1.jpg",
+        image: "product11.jpg",
         sizes: [
             { size: "80 ct", price: 3.00 },
             { size: "105 ct", price: 3.50 },
@@ -121,7 +121,7 @@ const products = [
     {
         id: 12,
         name: "Bounce Pet Hair Sheets",
-        image: "product1.jpg",
+        image: "product12.jpg",
         sizes: [
             { size: "80 ct", price: 4.00 },
         ],
@@ -131,7 +131,7 @@ const products = [
     {
         id: 13,
         name: "Tide Pods",
-        image: "product1.jpg",
+        image: "product13.jpg",
         sizes: [
             { size: "12-14 ct", price: 3.50 },
             { size: "42 ct", price: 10.50 },
@@ -143,7 +143,7 @@ const products = [
     {
         id: 14,
         name: "Tide Simply Pods",
-        image: "product1.jpg",
+        image: "product14.jpg",
         sizes: [
             { size: "12-14ct", price: 3.00 },
         ],
@@ -153,7 +153,7 @@ const products = [
     {
         id: 15,
         name: "Tide Power w/ Oxi Pods",
-        image: "product1.jpg",
+        image: "product15.jpg",
         sizes: [
             { size: "25 ct", price: 7.00 },
         ],
@@ -163,7 +163,7 @@ const products = [
     {
         id: 16,
         name: "Tide Ultra Oxi 4in1",
-        image: "product1.jpg",
+        image: "product16.jpg",
         sizes: [
             { size: "32 ct", price: 8.00 },
         ],
@@ -173,7 +173,7 @@ const products = [
     {
         id: 17,
         name: "Tide Free&Gentle Pod",
-        image: "product1.jpg",
+        image: "product17.jpg",
         sizes: [
             { size: "16 ct", price: 4.00 },
         ],
@@ -183,7 +183,7 @@ const products = [
     {
         id: 18,
         name: "Tide Coral Blast",
-        image: "product1.jpg",
+        image: "product18.jpg",
         sizes: [
             { size: "92 oz", price: 10.00 },
         ],
@@ -193,7 +193,7 @@ const products = [
     {
         id: 19,
         name: "Tide w/ Downy",
-        image: "product1.jpg",
+        image: "product19.jpg",
         sizes: [
             { size: "92 oz", price: 10.00 },
         ],
@@ -203,7 +203,7 @@ const products = [
     {
         id: 20,
         name: "All Free&Gentle",
-        image: "product1.jpg",
+        image: "product20.jpg",
         sizes: [
             { size: "36 oz", price: 2.50 },
         ],
@@ -213,7 +213,7 @@ const products = [
     {
         id: 21,
         name: "Downy Infusions Softener",
-        image: "product1.jpg",
+        image: "product21.jpg",
         sizes: [
             { size: "41 oz", price: 4.00 },
         ],
@@ -223,7 +223,7 @@ const products = [
     {
         id: 22,
         name: "Downy Softener",
-        image: "product1.jpg",
+        image: "product22.jpg",
         sizes: [
             { size: "need", price: 3.00 },
         ],
@@ -233,7 +233,7 @@ const products = [
     {
         id: 23,
         name: "Persil Liquid",
-        image: "product1.jpg",
+        image: "product23.jpg",
         sizes: [
             { size: "40 oz", price: 4.00 },
         ],
@@ -243,7 +243,7 @@ const products = [
     {
         id: 24,
         name: "Persil Pods",
-        image: "product1.jpg",
+        image: "product24.jpg",
         sizes: [
             { size: "40 ct", price: 10.00 },
         ],
@@ -253,7 +253,7 @@ const products = [
     {
         id: 25,
         name: "Lysol Laundry Sanitizer",
-        image: "product1.jpg",
+        image: "product25.jpg",
         sizes: [
             { size: "41 oz", price: 4.50 },
         ],
@@ -263,7 +263,7 @@ const products = [
     {
         id: 26,
         name: "Arm&Hammer w/ Oxi Pods",
-        image: "product1.jpg",
+        image: "product26.jpg",
         sizes: [
             { size: "24 ct", price: 4.00 },
         ],
@@ -1074,6 +1074,82 @@ const products = [
             { size: "Lotion", price: 3.00 },
         ],
         category: "baby",
+    },
+
+    {
+        id: 104,
+        name: "Neutrogena Acne Treatment",
+        image: "product1.jpg",
+        sizes: [
+            { size: "One size", price: 5.00 },
+        ],
+        category: "skincare",
+    },
+
+    {
+        id: 105,
+        name: "Bandaids",
+        image: "product1.jpg",
+        sizes: [
+            { size: "Various", price: 2.00 },
+        ],
+        category: "medicine",
+    },
+
+    {
+        id: 106,
+        name: "Differin Skincare",
+        image: "product1.jpg",
+        sizes: [
+            { size: "Toner", price: 5.00 },
+            { size: "Cleanser", price: 5.00 },
+        ],
+        category: "skincare",
+    },
+
+    {
+        id: 107,
+        name: "Cetaphil",
+        image: "product1.jpg",
+        sizes: [
+            { size: "Face Wipes", price: 5.00 },
+            { size: "Cleanser", price: 5.00 },
+            { size: "Mini Cleanser (2 for 1)", price: 1.00 },
+            { size: "Mini Lotion (2 for 1)", price: 1.00 },
+        ],
+        category: "skincare",
+    },
+
+    {
+        id: 108,
+        name: "Loreal Cleanser",
+        image: "product1.jpg",
+        sizes: [
+            { size: "Gentle", price: 5.00 },
+        ],
+        category: "skincare",
+    },
+
+    {
+        id: 109,
+        name: "Olay Cleanser",
+        image: "product1.jpg",
+        sizes: [
+            { size: "Vitamin-C", price: 3.50 },
+            { size: "Shea Peptide", price: 3.50 },
+            { size: "7 in 1", price: 3.50 },
+        ],
+        category: "skincare",
+    },
+
+    {
+        id: 109,
+        name: "Eucerin Advanced Repair",
+        image: "product1.jpg",
+        sizes: [
+            { size: "One size", price: 4.00 },
+        ],
+        category: "skincare",
     },
     
 
