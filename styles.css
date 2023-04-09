@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #333;
+    background-image: linear-gradient(to bottom right, purple, rgb(242, 47, 242));
     color: #fff;
     text-align: center;
     padding: 1rem;
@@ -48,7 +48,7 @@ footer {
 
 
 .sidebar {
-    background-color: #f5f5f5;
+    background-image: linear-gradient(rgb(242, 47, 242),purple);
     border-radius: 5px;
     padding: 1rem;
     width: 250px;
@@ -152,6 +152,7 @@ footer {
 #content {
     flex-grow: 1;
     padding: 2rem;
+    background-image: linear-gradient(to bottom right, purple, rgb(242, 47, 242));
 }
 
 
