@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>K-Shop</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>K-Shop</h1>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#" data-page="home">Home</a></li>
+                    <li><a href="#" id="cart-link" data-page="cart">Cart</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <div class="grid-container"> <!-- Add the 'grid-container' class -->
+            <!-- Sidebar with 9 sections -->
+            <aside class="sidebar" id="sidebar">
+                <h3>Sections</h3>
+                <ul>
+                    <li><a href="#" data-page="laundry">Laundry Items</a></li>
+                    <li><a href="#" data-page="paper">Paper Products</a></li>
+                    <li><a href="#" data-page="household">Household Items / Cleaners</a></li>
+                    <li><a href="#" data-page="oral">Oral Care Products</a></li>
+                    <li><a href="#" data-page="personal">Personal Care Products</a></li>
+                    <li><a href="#" data-page="medicine">Medicine Items</a></li>
+                    <li><a href="#" data-page="feminine">Feminine Care Items</a></li>
+                    <li><a href="#" data-page="baby">Baby Care Items</a></li>
+                    <li><a href="#" data-page="skincare">Skincare Products</a></li>
+                    <li><a href="#" data-page="bundles">Bundle Deals</a></li>
+                    <!-- Add more sections here -->
+                </ul>
+            </aside>
+
+            <main id="content">
+                <!-- The dynamic content will be loaded here -->
+            </main>
+        </div>
+
+        <footer>
+            <p>&copy; 2023 K-Shop. All rights reserved.</p>
+        </footer>
+
+        <script src="script.js"></script>
+        <script src="products.js"></script>
+        <script src="cart.js"></script>
+    </body>
+</html>
