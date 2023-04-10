@@ -1,31 +1,47 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const mainNav = document.getElementById("main-nav");
-    const sidebar = document.getElementById("sidebar");
-    const content = document.getElementById("content");
-  
-    // Set the content's margin-left initially
-    content.style.marginLeft = `${sidebar.offsetWidth}px`;
-  
-    // Load the default content (home page)
-    loadPage("home");
-  
-    // Add a click event listener to the navigation menu
-    mainNav.addEventListener("click", handleNavClick);
-  
-    // Add event listeners to each anchor tag inside the sidebar
-    sidebar.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", handleNavClick);
-    });
-  
-    function handleNavClick(event) {
-      event.preventDefault();
-      const target = event.target;
-      if (target.tagName === "A") {
-        const page = target.getAttribute("data-page");
-        loadPage(page);
-      }
+  const mainNav = document.getElementById("main-nav");
+  const sidebar = document.getElementById("sidebar");
+  const content = document.getElementById("content");
+  const menuToggle = document.getElementById('menu-toggle');
+
+  // Set the content's margin-left initially
+  content.style.marginLeft = `${sidebar.offsetWidth}px`;
+
+  // Load the default content (home page)
+  loadPage("home");
+
+  // Add a click event listener to the navigation menu
+  mainNav.addEventListener("click", handleNavClick);
+
+  // Add event listeners to each anchor tag inside the sidebar
+  sidebar.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", handleNavClick);
+  });
+
+  // Add a click event listener to the menu toggle button
+  menuToggle.addEventListener('click', function () {
+    sidebar.classList.toggle('open');
+  });
+
+  // Add an event listener to the body to close the menu when clicking outside the sidebar
+  document.body.addEventListener('click', function (event) {
+    // Check if the clicked element is inside the sidebar or the menu toggle button
+    if (!sidebar.contains(event.target) && event.target !== menuToggle) {
+      sidebar.classList.remove('open');
     }
   });
+
+  function handleNavClick(event) {
+    event.preventDefault();
+    const target = event.target;
+    if (target.tagName === "A") {
+      const page = target.getAttribute("data-page");
+      loadPage(page);
+    }
+  }
+});
+
+
   
   function loadPage(page, callback) {
     if (["laundry", "paper", "household", "oral", "personal", "medicine", "feminine", "baby", "skincare", "bundles"].includes(page)) {
@@ -135,11 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const cartHtml = generateCartHtml(cartItems);
     content.innerHTML = cartHtml;
   }
-  
-  
-  
-
-  
+    
   function generateCartHtml() {
     console.log("Cart contents: ", cart);
 
@@ -190,4 +202,6 @@ document.addEventListener("DOMContentLoaded", function () {
         content.style.marginLeft = "";
     }
   });
+
+  
   
