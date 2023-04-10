@@ -180,4 +180,34 @@ footer {
   .cart-table .even {
     background-color: #f2f2f2;
   }
+
+  @media screen and (max-width: 768px) {
+    header li {
+      padding: 0 0.25rem;
+    }
+  
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .sidebar {
+      width: 100%;
+      min-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+  
+    .center-featured {
+      width: 100%;
+    }
+  
+    #products {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+  
+    #content {
+      padding: 1rem;
+    }
+  }
+  
   
