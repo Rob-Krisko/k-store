@@ -181,6 +181,19 @@ footer {
     background-color: #f2f2f2;
   }
 
+  .menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
   @media screen and (max-width: 768px) {
     header li {
       padding: 0 0.25rem;
@@ -190,11 +203,23 @@ footer {
       grid-template-columns: 1fr;
     }
   
+    .menu-toggle {
+        display: inline;
+      }
+    
+      /* Update sidebar styles */
     .sidebar {
-      width: 100%;
-      min-width: 100%;
-      height: auto;
-      margin-bottom: 1rem;
+      width: 70%;
+      min-width: 80%;
+      height: 90%;
+      overflow-y: auto;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+      background-image: linear-gradient(rgb(242, 47, 242), purple);
     }
   
     .center-featured {
