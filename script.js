@@ -18,9 +18,18 @@ document.addEventListener("DOMContentLoaded", function () {
     link.addEventListener("click", handleNavClick);
   });
 
+  const closeNavButton = createCloseNavButton();
+  sidebar.appendChild(closeNavButton);
+  closeNavButton.style.display = 'none'; // Set initial display state to 'none'
+
   // Add a click event listener to the menu toggle button
   menuToggle.addEventListener('click', function () {
     sidebar.classList.toggle('open');
+    if (sidebar.classList.contains('open')) {
+      closeNavButton.style.display = 'block'; // Show the close button when the menu is open
+    } else {
+      closeNavButton.style.display = 'none'; // Hide the close button when the menu is closed
+    }
   });
 
   // Add an event listener to the body to close the menu when clicking outside the sidebar
@@ -28,6 +37,16 @@ document.addEventListener("DOMContentLoaded", function () {
     // Check if the clicked element is inside the sidebar or the menu toggle button
     if (!sidebar.contains(event.target) && event.target !== menuToggle) {
       sidebar.classList.remove('open');
+      closeNavButton.style.display = 'none'; // Hide the close button when the menu is closed
+    }
+  });
+
+  // Add a resize event listener to manage close button visibility on different screen sizes
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 768) {
+      closeNavButton.style.display = 'none'; // Hide the close button on larger screens
+    } else if (sidebar.classList.contains('open')) {
+      closeNavButton.style.display = 'block'; // Show the close button on smaller screens when the menu is open
     }
   });
 
@@ -41,8 +60,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-
-  
   function loadPage(page, callback) {
     if (["laundry", "paper", "household", "oral", "personal", "medicine", "feminine", "baby", "skincare", "bundles"].includes(page)) {
       displayProducts(page);
@@ -203,5 +220,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  function createCloseNavButton() {
+    const closeButton = document.createElement('button');
+    closeButton.id = 'close-nav-btn';
+    closeButton.textContent = 'X'; // Changed to an 'X' for better visual representation
+    closeButton.style.position = 'absolute';
+    closeButton.style.top = '10px';
+    closeButton.style.right = '10px';
+    closeButton.style.display = 'none'; // Hide the close button initially
+    closeButton.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+    });
+    return closeButton;
+  }
+  
+  function updateCloseButtonVisibility() {
+    if (sidebar.classList.contains('open')) {
+      closeNavButton.style.display = 'block'; // Show the close button when the menu is open
+    } else {
+      closeNavButton.style.display = 'none'; // Hide the close button when the menu is closed
+    }
+  }
+  
   
   
