@@ -22,6 +22,25 @@ function addToCart(productId, size, quantity) {
   localStorage.setItem("cart", JSON.stringify(cart.items));
 }
 
+function emptyCart() {
+  cart.items = {};
+  localStorage.setItem("cart", JSON.stringify(cart.items));
+}
+
+function updateItemQuantity(cartKey, newQuantity) {
+  if (cart.items[cartKey]) {
+    cart.items[cartKey].quantity = newQuantity;
+    localStorage.setItem("cart", JSON.stringify(cart.items));
+  }
+}
+
+function removeItemFromCart(cartKey) {
+  if (cart.items[cartKey]) {
+    delete cart.items[cartKey];
+    localStorage.setItem("cart", JSON.stringify(cart.items));
+  }
+}
+
 function generateCartHtml() {
   console.log("Cart contents: ", cart);
   let cartHtml = `
@@ -34,6 +53,7 @@ function generateCartHtml() {
           <th>Price per</th>
           <th>Quantity</th>
           <th>Total</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
@@ -44,17 +64,25 @@ function generateCartHtml() {
   let completeTotal = 0;
 
   for (const cartItem of cartItems) {
+    const cartKey = `${cartItem.product.id}_${cartItem.size}`;
     const rowTotal = cartItem.product.sizes.find((s) => s.size === cartItem.size).price * cartItem.quantity;
     completeTotal += rowTotal;
     cartHtml += `
-      <tr class="${index % 2 === 0 ? "even" : "odd"}">
-          <td>${cartItem.product.name}</td>
-          <td>${cartItem.size}</td>
-          <td>$${cartItem.product.sizes.find((s) => s.size === cartItem.size).price.toFixed(2)}</td>
-          <td>${cartItem.quantity}</td>
-          <td>$${rowTotal.toFixed(2)}</td>
-      </tr>
-    `;
+    <tr class="${index % 2 === 0 ? "even" : "odd"}">
+      <td>${cartItem.product.name}</td>
+      <td>${cartItem.size}</td>
+      <td>$${cartItem.product.sizes.find((s) => s.size === cartItem.size).price.toFixed(2)}</td>
+      <td>
+        <input type="number" id="quantity-${cartKey}" value="${cartItem.quantity}" min="1">
+        <button id="update-${cartKey}">Update</button>
+      </td>
+      <td>$${rowTotal.toFixed(2)}</td>
+      <td>
+      <button id="remove-${cartKey}" class="remove-item-btn">×</button>
+      </td>
+    </tr>
+  `;
+  
     index++;
   }
 
@@ -62,7 +90,7 @@ function generateCartHtml() {
       </tbody>
       <tfoot>
         <tr>
-          <th colspan="4">Complete Total</th>
+          <th colspan="5">Complete Total</th>
           <th>$${completeTotal.toFixed(2)}</th>
         </tr>
       </tfoot>
@@ -70,6 +98,7 @@ function generateCartHtml() {
     <label for="customer-name">Your Name:</label>
     <input type="text" id="customer-name" name="customer-name" required>
     <button id="send-cart-email">Send Cart as Email</button>
+    <button id="empty-cart">Empty Cart</button>
   `;
 
   return cartHtml;
@@ -99,8 +128,6 @@ function generateEmailBody() {
   return emailBody;
 }
 
-
-
 function sendCartEmail() {
   const recipientEmail = "kriskora17@gmail.com"; // Replace this with the desired email address
   const subject = "K-Shop Order";
@@ -128,15 +155,54 @@ function sendCartEmail() {
     );
 }
 
-// Assuming your cart HTML container has the id "cart-container"
+// Assuming your cart HTML container has the id "content"
 function displayCart() {
   const cartContainer = document.getElementById("content");
   cartContainer.innerHTML = generateCartHtml();
 
-  // Add an event listener to the dynamically created button
+  // Add event listeners to the dynamically created buttons
   const sendCartEmailButton = document.getElementById("send-cart-email");
+  const emptyCartButton = document.getElementById("empty-cart");
+  const cartItems = cart.getItems();
+
   if (sendCartEmailButton) {
     sendCartEmailButton.addEventListener("click", sendCartEmail);
   }
+
+  if (emptyCartButton) {
+    emptyCartButton.addEventListener("click", () => {
+      emptyCart();
+      displayCart();
+    });
+  }
+
+  // Add event listeners for the quantity input fields and remove buttons
+  for (const cartItem of cartItems) {
+    const cartKey = `${cartItem.product.id}_${cartItem.size}`;
+    const quantityInput = document.getElementById(`quantity-${cartKey}`);
+    const updateButton = document.getElementById(`update-${cartKey}`);
+    const removeButton = document.getElementById(`remove-${cartKey}`);
+  
+    if (updateButton) {
+      updateButton.addEventListener("click", (event) => {
+        event.preventDefault();
+        const newQuantity = parseInt(quantityInput.value, 10);
+        if (newQuantity > 0) {
+          updateItemQuantity(cartKey, newQuantity);
+        } else {
+          removeItemFromCart(cartKey);
+        }
+        displayCart();
+      });
+    }
+  
+    if (removeButton) {
+      removeButton.addEventListener("click", () => {
+        removeItemFromCart(cartKey);
+        displayCart();
+      });
+    }
+  }
+  
 }
 
